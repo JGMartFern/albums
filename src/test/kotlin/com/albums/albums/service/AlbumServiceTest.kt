@@ -12,10 +12,10 @@ class AlbumServiceTest {
 
     @Test
     fun `should call the data source to get the albums`() {
-        //when
+        // when
         val albums = albumService.getAlbums()
 
-        //then
+        // then
         verify(exactly = 1) { dataSource.getAlbums() }
-        }
+    }
 }

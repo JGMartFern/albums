@@ -24,7 +24,6 @@ class WebsiteAlbumDataSource(
             )
 
         return response.body
-            ?: throw IOException ("Could not fetch albums from website")
+            ?: throw IOException("Could not fetch albums from website")
     }
-
 }

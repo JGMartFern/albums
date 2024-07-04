@@ -18,7 +18,6 @@ class PhotoControllerTest {
 
     @Test
     fun `should return all photos with a given albumId`() {
-
         val albumId = 2
         mockMvc.get("$baseUrl?albumId=$albumId")
             .andExpect {
@@ -30,10 +29,9 @@ class PhotoControllerTest {
 
     @Test
     fun `should return NOT FOUND if there are no albums with such id`() {
-
         val albumId = 101
 
         mockMvc.get("$baseUrl?albumId=$albumId")
             .andExpect { status { isNotFound() } }
-        }
+    }
 }

@@ -24,7 +24,6 @@ class WebsiteAlbumDataSourceTest {
 
     @Test
     fun `should retrieve a collection of albums`() {
-
         val albums: Collection<Album> = listOf(
             Album(1, 1, "Album 1"),
             Album(1, 2, "Album 2"),

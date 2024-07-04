@@ -18,7 +18,7 @@ class AlbumControllerTest {
     @Test
     fun `should return all albums`() {
         mockMvc.get("/api/albums")
-             .andExpect {
+            .andExpect {
                 status { isOk() }
                 content { contentType(MediaType.APPLICATION_JSON) }
                 jsonPath("$[0].userId") { value(1) }

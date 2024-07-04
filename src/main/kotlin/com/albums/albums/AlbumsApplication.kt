@@ -9,9 +9,9 @@ import org.springframework.web.client.RestTemplate
 @SpringBootApplication
 class AlbumsApplication {
 
-	@Bean
-	fun restTemplate(builder: RestTemplateBuilder): RestTemplate = builder.build()
+    @Bean
+    fun restTemplate(builder: RestTemplateBuilder): RestTemplate = builder.build()
 }
 fun main(args: Array<String>) {
-	runApplication<AlbumsApplication>(*args)
+    runApplication<AlbumsApplication>(*args)
 }

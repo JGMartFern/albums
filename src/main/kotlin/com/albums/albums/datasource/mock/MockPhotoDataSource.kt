@@ -11,7 +11,7 @@ class MockPhotoDataSource : PhotoDataSource {
         Photo(2, 1, "Mary", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"),
         Photo(2, 4, "Maureen", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"),
         Photo(3, 10, "Misty", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"),
-        Photo(6, 21, "Monica", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796"),
+        Photo(6, 21, "Monica", "https://via.placeholder.com/600/771796", "https://via.placeholder.com/150/771796")
     )
 
     override fun getPhotosByAlbumId(albumId: Int): Collection<Photo> {
