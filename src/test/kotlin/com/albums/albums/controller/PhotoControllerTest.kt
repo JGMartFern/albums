@@ -10,18 +10,30 @@ import org.springframework.test.web.servlet.get
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AlbumControllerTest {
+class PhotoControllerTest {
 
     @Autowired
     lateinit var mockMvc: MockMvc
+    val baseUrl = "/api/photos"
 
     @Test
-    fun `should return all albums`() {
-        mockMvc.get("/api/albums")
-             .andExpect {
+    fun `should return all photos with a given albumId`() {
+
+        val albumId = 2
+        mockMvc.get("$baseUrl?albumId=$albumId")
+            .andExpect {
                 status { isOk() }
                 content { contentType(MediaType.APPLICATION_JSON) }
-                jsonPath("$[0].userId") { value(1) }
+                jsonPath("$[0].title") { value("Mary") }
             }
     }
+
+    @Test
+    fun `should return NOT FOUND if there are no albums with such id`() {
+
+        val albumId = 101
+
+        mockMvc.get("$baseUrl?albumId=$albumId")
+            .andExpect { status { isNotFound() } }
+        }
 }

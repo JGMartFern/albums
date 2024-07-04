@@ -13,7 +13,7 @@ class MockPhotoDataSourceTest {
         val albums = mockDataSource.getPhotosByAlbumId(2)
 
         //then
-        Assertions.assertThat(albums.size).isGreaterThanOrEqualTo(3)
+        Assertions.assertThat(albums.size).isEqualTo(2)
     }
 
     @Test
