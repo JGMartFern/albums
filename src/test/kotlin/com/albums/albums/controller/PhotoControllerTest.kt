@@ -23,7 +23,9 @@ class PhotoControllerTest {
             .andExpect {
                 status { isOk() }
                 content { contentType(MediaType.APPLICATION_JSON) }
-                jsonPath("$[0].title") { value("Mary") }
+                jsonPath("$[0].title") {
+                    value("non sunt voluptatem placeat consequuntur rem incidunt")
+                }
             }
     }
 

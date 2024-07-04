@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository
 import org.springframework.web.client.RestTemplate
 import java.io.IOException
 
-@Repository(value = "website")
+@Repository(value = "websiteAlbum")
 class WebsiteAlbumDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : AlbumDataSource {

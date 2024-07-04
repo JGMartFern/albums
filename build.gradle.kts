@@ -27,7 +27,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("io.mockk:mockk:1.13.11")
-    testImplementation("com.github.tomakehurst:wiremock-jre8:2.33.2")
+    testImplementation("com.github.tomakehurst:wiremock-jre8:2.35.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
