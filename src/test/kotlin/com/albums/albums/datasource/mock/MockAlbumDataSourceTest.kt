@@ -9,8 +9,6 @@ class MockAlbumDataSourceTest {
 
     @Test
     fun `should retrieve a collection of albums`() {
-        //given
-
         //when
         val albums = mockDataSource.getAlbums()
 
@@ -20,7 +18,6 @@ class MockAlbumDataSourceTest {
 
     @Test
     fun `should get some mock data`() {
-
         //when
         val albums = mockDataSource.getAlbums()
 
@@ -28,7 +25,5 @@ class MockAlbumDataSourceTest {
         Assertions.assertThat(albums).allMatch { it.userId > 0 }
         Assertions.assertThat(albums).allMatch { it.id > 0 }
         Assertions.assertThat(albums).allMatch { it.title.isNotBlank() }
-
     }
-
 }
