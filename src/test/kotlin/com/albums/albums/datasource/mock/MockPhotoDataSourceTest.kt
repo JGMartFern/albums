@@ -9,19 +9,15 @@ class MockPhotoDataSourceTest {
 
     @Test
     fun `should retrieve a collection of photos`() {
-        // when
         val albums = mockDataSource.getPhotosByAlbumId(2)
 
-        // then
         Assertions.assertThat(albums.size).isEqualTo(2)
     }
 
     @Test
     fun `should get some mock data`() {
-        // when
         val albums = mockDataSource.getPhotosByAlbumId(2)
 
-        // then
         Assertions.assertThat(albums).allMatch { it.albumId > 0 }
         Assertions.assertThat(albums).allMatch { it.id > 0 }
         Assertions.assertThat(albums).allMatch { it.title.isNotBlank() }

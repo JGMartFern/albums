@@ -12,11 +12,9 @@ class PhotoServiceTest {
 
     @Test
     fun `should call the data source to get the photos`() {
-        // when
         val albumId = 3
         val photos = photoService.getPhotosByAlbumId(albumId)
 
-        // then
         verify(exactly = 1) { dataSource.getPhotosByAlbumId(albumId) }
     }
 }
