@@ -8,14 +8,31 @@ http://localhost:8080/api/albums
 
 There you will get a list of all the albums that JSONPlaceholder provides.
 
-Alternatively, you can use this link:
+Alternatively, you can use this link (ctrl + click to open directly):
 http://localhost:8080/api/photos?albumId=3
 
 Here, you will get the details for all the photos that are associated with the album 3. You can freely change the number
-after the symbol "=" as shown below: 
+after the symbol "=" as shown below (ctrl + click): 
 http://localhost:8080/api/photos?albumId=14
 
 This way you can search through different albums and see what photos they contain.
+
+In order to run all tests, use this:
+`./gradlew test`
+
+If you want to pass a lint check, you can use this command:
+`./gradlew ktlintCheck`
+
+And if the check is raising some alarms, you can use this command for applying ktlint directly and formatting your code:
+`./gradlew ktlintFormat`
+
+<h2>Design choices</h2>
+
+In order to make a more maintainable, scalable application, I chose to divide controllers, services and data sources
+between Photo and Album, because they are two models that are not alike at all. Also, having them separated from each
+other will allow us to basically work in any of them independently. We can still develop Photo service and controller,
+and Album can stay as it is with no risk of getting in our way, since they are separated. Each one has its own
+responsibilities, they are independent of each other, and can be worked on separately.
 
 I am choosing to start from bottom to top, creating the model all the way to the top until the rest controller because
 this way the code is easier to test. It is simpler to start writing tests when we start from the bottom, and keep adding
