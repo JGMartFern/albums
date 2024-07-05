@@ -34,6 +34,11 @@ other will allow us to basically work in any of them independently. We can still
 and Album can stay as it is with no risk of getting in our way, since they are separated. Each one has its own
 responsibilities, they are independent of each other, and can be worked on separately.
 
+Following on this, each one has its own integration test for the purposes of scalability and maintainability. If we want
+to expand this application in the future, it is very likely that we want to check that they work independently of each
+other. Besides, having smaller, differentiated tests can be helpful to maintain and debug the application if it keeps
+growing.
+
 I am choosing to start from bottom to top, creating the model all the way to the top until the rest controller because
 this way the code is easier to test. It is simpler to start writing tests when we start from the bottom, and keep adding
 until we end up with the whole service and its corresponding tests. I went from simple to complex and not the other way
