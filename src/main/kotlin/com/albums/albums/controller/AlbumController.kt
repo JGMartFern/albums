@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@Tag(name = "Albums", description = "API for managing Albums from JSONPlaceholder")
+@Tag(name = "Albums", description = "API for retrieving Albums from JSONPlaceholder")
 @RestController
 @RequestMapping("/api/albums")
 class AlbumController(private val service: AlbumService) {
