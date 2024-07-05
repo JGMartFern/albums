@@ -15,6 +15,11 @@ class WebsitePhotoDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : PhotoDataSource {
     override fun getPhotosByAlbumId(albumId: Int): Collection<Photo> {
+
+        if (albumId <= 0) {
+            throw IllegalArgumentException("You must introduce a positive integer for albumId")
+        }
+
         val response: ResponseEntity<Collection<Photo>> =
             restTemplate.exchange(
                 "https://jsonplaceholder.typicode.com/photos?albumId=$albumId",

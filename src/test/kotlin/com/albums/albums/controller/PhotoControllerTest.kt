@@ -36,4 +36,12 @@ class PhotoControllerTest {
         mockMvc.get("$baseUrl?albumId=$albumId")
             .andExpect { status { isNotFound() } }
     }
+
+    @Test
+    fun `should return BAD REQUEST if no positive integers are used`() {
+        val albumId = 0
+
+        mockMvc.get("$baseUrl?albumId=$albumId")
+            .andExpect { status { isBadRequest() } }
+    }
 }

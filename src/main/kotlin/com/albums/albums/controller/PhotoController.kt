@@ -18,6 +18,10 @@ class PhotoController(private val service: PhotoService) {
     fun handleAlbumNotFound(e: NoSuchElementException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.NOT_FOUND)
 
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleNumberNotValid(e: IllegalArgumentException): ResponseEntity<String> =
+        ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
+
     @GetMapping
     fun getPhotosByAlbumId(@RequestParam(value = "albumId") albumId: Int): Collection<Photo> = service.getPhotosByAlbumId(albumId)
 }
