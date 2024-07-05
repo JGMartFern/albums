@@ -54,7 +54,16 @@ bit more separated between them. This will also be in our favor when we are test
 to make an application that follows the Single Responsibility Principle, which is why I am choosing to separate the
 service and the data source layers.
 
+I have made the decision of trying the application using mock data and not removing them from the code. The reasoning
+behind this is to have something to start without depending on external services such as JSONPlaceholder. This way I
+could create services, controllers and tests without hitting the JSONPlaceholder endpoints. Also, it made implementing
+the final version with the actual calls to JSONPlaceholder much easier with minimal changes, since everything was 
+already tested. I decided not to remove that part of the code so anyone could take a look at it, see similarities, opt
+for a similar approach and so forth. In this context of a technical test, and in spirit of having this app stored in my
+GitHub publicly, I chose to let the mock datasources be, so anyone could take them as examples for practicing.
+
 I chose not to use a ControllerAdvice this time, because of the scale that the application has at this time. Being only
 two exceptions, and both of them being part of the PhotoController, I see no need of creating it. However, it would be
-very advisable if we expand our app in the future and we start having more controllers, each of them with their own
-exceptions. A centralized ControllerAdvice can do wonders for having those exceptions organised and easily located.
+very advisable in the case that we expand our app in the future and start having more controllers, each of them with 
+their own exceptions. A centralized ControllerAdvice can do wonders for having those exceptions organised and easily 
+located.

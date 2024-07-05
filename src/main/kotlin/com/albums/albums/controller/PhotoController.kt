@@ -24,6 +24,7 @@ class PhotoController(private val service: PhotoService) {
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleNumberNotValid(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
+
     @Operation(
         summary = "It obtains photos with an AlbumId",
         description = "It returns a collection of all available photos with a matching AlbumId"
