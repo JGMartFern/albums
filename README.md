@@ -3,16 +3,19 @@
 How to run the app:
 `./gradlew bootRun`
 
-Once the app is running, you can go to:
+Once the app is running, you can use Swagger OpenAPI to get a better understanding of it:
+http://localhost:8080/swagger-ui/index.html
+
+Alternatively, you can use directly its endpoints, such as this one for the albums:
 http://localhost:8080/api/albums
 
 There you will get a list of all the albums that JSONPlaceholder provides.
 
-Alternatively, you can use this link (ctrl + click to open directly):
+Alternatively, you can use this link:
 http://localhost:8080/api/photos?albumId=3
 
 Here, you will get the details for all the photos that are associated with the album 3. You can freely change the number
-after the symbol "=" as shown below (ctrl + click): 
+after the symbol "=" as shown below: 
 http://localhost:8080/api/photos?albumId=14
 
 This way you can search through different albums and see what photos they contain.
@@ -25,6 +28,8 @@ If you want to pass a lint check, you can use this command:
 
 And if the check is raising some alarms, you can use this command for applying ktlint directly and formatting your code:
 `./gradlew ktlintFormat`
+
+
 
 <h2>Design choices</h2>
 
