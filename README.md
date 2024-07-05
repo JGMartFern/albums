@@ -48,3 +48,8 @@ I am also opting for a Data Source Layer in order to have an application that is
 bit more separated between them. This will also be in our favor when we are testing the application. I am also trying
 to make an application that follows the Single Responsibility Principle, which is why I am choosing to separate the
 service and the data source layers.
+
+I chose not to use a ControllerAdvice this time, because of the scale that the application has at this time. Being only
+two exceptions, and both of them being part of the PhotoController, I see no need of creating it. However, it would be
+very advisable if we expand our app in the future and we start having more controllers, each of them with their own
+exceptions. A centralized ControllerAdvice can do wonders for having those exceptions organised and easily located.
