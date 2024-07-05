@@ -15,7 +15,6 @@ class WebsitePhotoDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : PhotoDataSource {
     override fun getPhotosByAlbumId(albumId: Int): Collection<Photo> {
-
         if (albumId <= 0) {
             throw IllegalArgumentException("You must introduce a positive integer for albumId")
         }
