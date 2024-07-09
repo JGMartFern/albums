@@ -30,7 +30,7 @@ class PhotoController(private val service: PhotoService) {
         description = "It returns a collection of photos"
     )
     @GetMapping
-    fun getPhotos(@RequestParam(value = "albumId", required = false) albumId: Int): Collection<Photo> {
+    fun getPhotos(@RequestParam(value = "albumId", required = false) albumId: Int?): Collection<Photo> {
         if (albumId != null) {
             return service.getPhotosByAlbumId(albumId)
         }
