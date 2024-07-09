@@ -67,3 +67,14 @@ two exceptions, and both of them being part of the PhotoController, I see no nee
 very advisable in the case that we expand our app in the future and start having more controllers, each of them with 
 their own exceptions. A centralized ControllerAdvice can do wonders for having those exceptions organised and easily 
 located.
+
+In the latest changes, I have tinkered a bit with the Album model, so it can include a collection of photos inside each
+one if it's possible. The most efficient way of doing this changes is to make a single GET request and take all photos
+at once, and then distribute them among their corresponding albums internally. This way, we do not have to do one GET
+request for each album (that would amount to around 100 requests), but instead I am doing just one and taking all the
+data we need (which coincidentally is all the data). Of course, this solution works for this case because of its 
+simplicity, and because I already know the data I am going to get in advance. In the future, if someone is inclined to
+integrate this with front-end, a possible and elegant solution would be the use of pagination, so we don't have to 
+retrieve all the data at once. The sheer amount of albums is enough to think about some way of managing these data and 
+displaying it by pieces (for example, 5 albums at once, with their photos, which is still a lot but more manageable than
+all 100 of them at the same time).
