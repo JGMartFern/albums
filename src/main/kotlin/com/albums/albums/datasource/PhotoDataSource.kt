@@ -5,4 +5,5 @@ import com.albums.albums.model.Photo
 interface PhotoDataSource {
 
     fun getPhotosByAlbumId(albumId: Int): Collection<Photo>
+    fun getPhotos(): Collection<Photo>
 }

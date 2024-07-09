@@ -25,6 +25,30 @@ class WebsitePhotoDataSourceTest {
     private lateinit var websiteDataSource: WebsitePhotoDataSource
 
     @Test
+    fun `should retrieve a collection of photos`() {
+        val photos: Collection<Photo> = listOf(
+            Photo(1, 1, "Photo 1", "sampleUrl", "sampleThumbnailUrl"),
+            Photo(1, 2, "Photo 2", "sampleUrl", "sampleThumbnailUrl"),
+            Photo(1, 3, "Photo 3", "sampleUrl", "sampleThumbnailUrl")
+        )
+
+        val responseEntity = ResponseEntity(photos, HttpStatus.OK)
+
+        Mockito.`when`(
+            restTemplate.exchange(
+                Mockito.anyString(),
+                Mockito.eq(HttpMethod.GET),
+                Mockito.isNull(),
+                Mockito.any<ParameterizedTypeReference<Collection<Photo>>>()
+            )
+        ).thenReturn(responseEntity)
+
+        val result = websiteDataSource.getPhotos()
+
+        Assertions.assertThat(result.size).isEqualTo(3)
+    }
+
+    @Test
     fun `should retrieve a collection of photos by album id`() {
         val photos: Collection<Photo> = listOf(
             Photo(

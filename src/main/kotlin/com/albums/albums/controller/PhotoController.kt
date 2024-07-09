@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
-@Tag(name = "Photos", description = "API for retrieving Photos from JSONPlaceholder given an AlbumId")
+@Tag(name = "Photos", description = "API for retrieving Photos from JSONPlaceholder")
 @RestController
 @RequestMapping("/api/photos")
 class PhotoController(private val service: PhotoService) {
@@ -26,9 +26,14 @@ class PhotoController(private val service: PhotoService) {
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
     @Operation(
-        summary = "It obtains photos with an AlbumId",
-        description = "It returns a collection of all available photos with a matching AlbumId"
+        summary = "It obtains photos",
+        description = "It returns a collection of photos"
     )
     @GetMapping
-    fun getPhotosByAlbumId(@RequestParam(value = "albumId") albumId: Int): Collection<Photo> = service.getPhotosByAlbumId(albumId)
+    fun getPhotos(@RequestParam(value = "albumId", required = false) albumId: Int): Collection<Photo> {
+        if (albumId != null) {
+            return service.getPhotosByAlbumId(albumId)
+        }
+        return service.getPhotos()
+    }
 }

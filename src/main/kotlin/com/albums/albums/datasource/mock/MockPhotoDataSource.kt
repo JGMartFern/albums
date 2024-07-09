@@ -21,4 +21,8 @@ class MockPhotoDataSource : PhotoDataSource {
         }
         return filteredPhotos
     }
+
+    override fun getPhotos(): Collection<Photo> {
+        return photos
+    }
 }
